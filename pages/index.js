@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import Image from 'next/image';
-import { Grid, Typography } from "@material-ui/core";
+import { Button, Grid, Typography } from "@material-ui/core";
 
 const Body = styled(Grid)`
   padding: 16px;
+  margin-bottom: 16px;
 `;
 
 const Video = styled.iframe`
@@ -60,6 +61,10 @@ export default function Home() {
       <CenterText item xs={6}>
         <Image src="/index2.png" width="560" height="315" />
       </CenterText>
+      <Grid item xs={10}></Grid>
+      <Grid item xs={2}>
+        <Button onClick={() => alert('NOT IMPLEMENTED')} variant="contained" color="secondary">Lets Play A Game!</Button>
+      </Grid>
     </Body>
   )
 }

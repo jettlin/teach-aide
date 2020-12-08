@@ -4,7 +4,7 @@ import Title from './title';
 
 const Dialog = ({ open, onClose, title, children }) => (
   <MuiDialog onClose={onClose} open={open}>
-    <Title>{title}</Title>
+    {title && <Title>{title}</Title>}
     <Body>{children}</Body>
     <DialogActions>
       <Button onClick={onClose}>OK</Button>
