@@ -35,8 +35,8 @@ export default function Home() {
           allowFullscreen
         />
       </Grid>
-      <CenterText item xs={6}>
-        <Image src="/index1.png" width="315" height="315" />
+      <CenterText item xs={3}>
+        <Image src="/index3.png" width="250" height="250" />
       </CenterText>
       <Grid item xs={6}>
         <Typography variant="h6" gutterBottom>
@@ -46,6 +46,9 @@ export default function Home() {
           Creativity, loosely defined, is the process in which something new is created, be it an idea or product, where the creation is original, valued and implemented. However, this is not the only or best definition.
         </Typography>
       </Grid>
+      <CenterText item xs={3}>
+        <Image src="/index1.png" width="315" height="315" />
+      </CenterText>
       <Grid item xs={6}>
         <Typography variant="h6" gutterBottom>
           Why is Creative Problem Solving Important in Education?
