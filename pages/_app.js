@@ -4,12 +4,16 @@ import { AppBar, IconButton, Typography } from '@material-ui/core';
 import { HelpOutline } from '@material-ui/icons';
 
 const TitleBar = styled(AppBar)`
-  flex-direction: row;
+  && {
+    flex-direction: row;
+  }
 `;
 
 const Title = styled(Typography)`
-  flex-grow: 1;
-  padding: 4px;
+  && {
+    flex-grow: 1;
+    padding: 4px;
+  }
 `;
 
 function MyApp({ Component, pageProps }) {
