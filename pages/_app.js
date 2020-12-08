@@ -1,7 +1,18 @@
-import styled from 'styled-components';
+import { useState } from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
 
 import { AppBar, IconButton, Typography } from '@material-ui/core';
 import { HelpOutline } from '@material-ui/icons';
+import Dialog from '../components/dialog';
+
+const GlobalStyle = createGlobalStyle`
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%:
+  }
+`
 
 const TitleBar = styled(AppBar)`
   && {
@@ -17,26 +28,19 @@ const Title = styled(Typography)`
 `;
 
 function MyApp({ Component, pageProps }) {
+  const [help, setHelp] = useState(false);
+
   return (
     <>
-      <head>
-        <title>Creativity Blossoms</title>
-        <link rel="icon" href="/favicon.ico" />
-
-        <style global jsx>{`
-          head, body {
-            padding: 0;
-            margin: 0;
-            width: 100%;
-            height: 100%;
-          }
-        `}</style>
-      </head>
+      <GlobalStyle />
       <TitleBar position="static">
         <Title variant="h6">Creativity Blossoms</Title>
-        <IconButton color="inherit"><HelpOutline /></IconButton>
+        <IconButton color="inherit" onClick={() => setHelp(true)}><HelpOutline /></IconButton>
       </TitleBar>
       <Component {...pageProps} />
+      <Dialog onClose={() => setHelp(false)} title="Help" open={help}>
+        <Typography>Please run your mouse over the image to find the clues.</Typography>
+      </Dialog>
     </>
   );
 }
