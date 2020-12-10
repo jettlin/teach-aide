@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { Typography } from '@material-ui/core';
 
 import * as Rooms from '../components/rooms';
+import Dialog from '../components/dialog';
 
 const Game = () => {
   const [curRoom, setCurRoom] = useState('summary');
@@ -11,17 +13,30 @@ const Game = () => {
   });
 
   const updateRoom = (name, spot) => {
-    const updated = { ...found };
-    updated[name].found.push(spot);
+    if (found[name].found.includes(spot)) return;
 
-    updateFound(updated.filter((v, i, self) => self.indexOf(v) === i));
+    const updated = { ...found };
+    updated[name].found = [...updated[name].found, spot].filter((v, i, self) => self.indexOf(v) === i);
+
+    updateFound(updated);
   }
 
-  let display = <Rooms.Summary />;
+  const completedRooms = Object.keys(found).filter(i => found[i].found.length === found[i].max);
+
+  let display = <Rooms.Summary onClick={(rm) => setCurRoom(rm)} completed={completedRooms} />;
+  // if (curRoom === 'class') display = <Rooms.Classroom found={found.class.found} />;
+
+  const handleAdminDialog = () => {
+    updateRoom('admin', 'all');
+    setCurRoom('summary');
+  }
 
   return (
     <>
      {display}
+     <Dialog onClose={handleAdminDialog} title="Talking to Administrator" open={curRoom === 'admin'}>
+        <Typography>TBD...</Typography>
+      </Dialog>
     </>
   );
 };
