@@ -37,6 +37,9 @@ const Game = () => {
      <Dialog onClose={handleAdminDialog} title="Talking to Administrator" open={curRoom === 'admin'}>
         <Typography>TBD...</Typography>
       </Dialog>
+      <Dialog onClose={() => setCurRoom('summary')} title="Not Implemented" open={!['admin', 'summary'].includes(curRoom)}>
+        <Typography>This has not yet been implemented.  Please try again later...</Typography>
+      </Dialog>
     </>
   );
 };
