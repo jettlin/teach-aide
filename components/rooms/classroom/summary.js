@@ -10,6 +10,7 @@ const Summary = ({ onBack = () => { }, onClick = (_spot) => { }, completed = [] 
       top="200px"
       left="200px"
       onClick={() => onClick('main')}
+      checked={['cabinet1', 'cabinet2'].every(val => completed.includes(val))}
     />
     <Image
       src='/classroom3.png'

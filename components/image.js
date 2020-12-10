@@ -9,12 +9,16 @@ const Root = styled.div`
   width: ${props => props['data-width']};
   height: ${props => props['data-height']};
   transform: translate(-50%, -50%);
-  cursor: pointer;
+  
   color: #66ff00;
   font-size: 100%;
 
-  &:hover {
-    box-shadow: 0 0 15px yellow;
+  &[data-takefocus=true] {
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0 15px yellow;
+    }
   }
 
   & .MuiSvgIcon-root {
@@ -24,8 +28,8 @@ const Root = styled.div`
   }
 `;
 
-const PositionedImage = ({ src, height, width, top, left, onClick, checked }) => (
-  <Root data-width={width} data-top={top} data-height={height} data-left={left} onClick={onClick}>
+const PositionedImage = ({ src, height, width, top, left, onClick, checked, takeFocus = true }) => (
+  <Root data-width={width} data-top={top} data-height={height} data-left={left} onClick={onClick} data-takefocus={takeFocus}>
     <Image src={src} layout='fill' />
     {checked && <CheckCircleOutline />}
   </Root>
