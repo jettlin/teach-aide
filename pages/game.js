@@ -23,9 +23,6 @@ const Game = () => {
 
   const completedRooms = Object.keys(found).filter(i => found[i].found.length === found[i].max);
 
-  // alert(completedRooms);
-  // alert(JSON.stringify(found.lounge.found));
-
   let onNext = null;
   if (completedRooms.length === Object.keys(found).length) onNext = () => setCurRoom('closet');
 

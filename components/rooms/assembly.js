@@ -1,4 +1,4 @@
-import { Typography } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import styled from 'styled-components';
 import Image from 'next/image';
 
@@ -55,7 +55,9 @@ const Assembly = () => (
       "You're the new Creative Studies teacher. I'll expect your curriculum plans on my desk by Monday. You might want to start with something easy. Like an escape room." Her eyes twinkled as you groaned about going through all of that again.
     </Typography>
     <Typography gutterBottom align="right">
-      Good job! You solved the puzzle! Head home?
+      <Button href="/story">
+        Good job! You solved the puzzle! Head home?
+      </Button>
     </Typography>
   </Body>
 );
