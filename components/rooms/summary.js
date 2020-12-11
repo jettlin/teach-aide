@@ -2,9 +2,9 @@ import Image from '../image';
 
 import Screen from '../gamescreen';
 
-const Summary = ({ onClick = (_rm) => { }, completed = [] }) => {
+const Summary = ({ onClick = (_rm) => { }, completed = [], onNext }) => {
   return (
-    <Screen title="Summary Room">
+    <Screen title="Summary Room" onNext={onNext}>
       <Image
         src='/summary3.png'
         width="300px"

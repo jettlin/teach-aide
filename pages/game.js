@@ -23,11 +23,21 @@ const Game = () => {
 
   const completedRooms = Object.keys(found).filter(i => found[i].found.length === found[i].max);
 
-  let display = <Rooms.Summary onClick={(rm) => setCurRoom(rm)} completed={completedRooms} />;
+  // alert(completedRooms);
+  // alert(JSON.stringify(found.lounge.found));
+
+  let onNext = null;
+  if (completedRooms.length === Object.keys(found).length) onNext = () => setCurRoom('closet');
+
+  let display = <Rooms.Summary onClick={(rm) => setCurRoom(rm)} completed={completedRooms} onNext={onNext} />;
   if (curRoom === 'class')
     display = <Rooms.Classroom completed={found.class.found} onClick={updateRoom} onBack={() => setCurRoom('summary')} />;
   if (curRoom === 'lounge')
-    display = <Rooms.Lounge completed={found.class.found} onClick={updateRoom} onBack={() => setCurRoom('summary')} />;
+    display = <Rooms.Lounge completed={found.lounge.found} onClick={updateRoom} onBack={() => setCurRoom('summary')} />;
+  if (curRoom === 'closet')
+    display = <Rooms.Closet onNext={() => setCurRoom('assembly')} />;
+  if (curRoom === 'assembly');
+    display = <Rooms.Assembly />;
 
   const handleAdminDialog = () => {
     updateRoom('admin', 'all');

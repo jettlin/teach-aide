@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ExitToApp } from '@material-ui/icons';
+import { ExitToApp, Forward } from '@material-ui/icons';
 
 const Root = styled.div`
   width: 800px;
@@ -28,11 +28,25 @@ const BackButton = styled.div`
   }
 `;
 
-const GameScreen = ({ title, children, onBack }) => (
+const ForwardButton = styled.div`
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  width: 50px;
+  height: 50px;
+
+  & .MuiSvgIcon-root {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+const GameScreen = ({ title, children, onBack, onNext }) => (
   <Root>
     {onBack && <BackButton onClick={() => onBack()}><ExitToApp /></BackButton>}
     {title && <Title>{title}</Title>}
     {children}
+    {onNext && <ForwardButton onClick={() => onNext()}><Forward /></ForwardButton>}
   </Root>
 );
 
