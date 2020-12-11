@@ -63,7 +63,7 @@ const Bins = ({ onBack = () => { }, onClick = (_spot) => { }, completed = [] }) 
         <Bin data-top="450px" data-left="465px" onClick={() => setShowDialog('blue')}>
           {completed.includes('blue') && <CheckCircleOutline />}
         </Bin>
-        <Bin data-top="225px" data-left="535px" onClick={() => setShowDialog('purple')}>
+        <Bin data-top="315px" data-left="535px" onClick={() => setShowDialog('purple')}>
           {completed.includes('purple') && <CheckCircleOutline />}
         </Bin>
       </Screen>

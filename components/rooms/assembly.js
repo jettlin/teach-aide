@@ -18,7 +18,7 @@ const Container = styled.div`
   margin-bottom: 24px;
 `;
 
-const Assembly = () => (
+const Assembly = ({ onReset }) => (
   <Body>
     <CenterText variant="h3" gutterBottom>Later...</CenterText>
     <Typography gutterBottom>
@@ -46,7 +46,7 @@ const Assembly = () => (
       "Instead of being with us here, she will be the new district Art Director." You couldn't help the grin at the announcement. She was a great lady. She deserved it. The students thought so apparently, as they cheered for her.
     </Typography>
     <Typography gutterBottom>
-      "Mr. Norville," she continued once it was silent, "Will be the new art teacher." Another roar of cheers and while you smiled and celebrated with your friend, happy for him, you were a bit disappointed that you didn't get the job. And a bit confused. Why were you up here then? "-will be our new Creative Studies instructor!" The noised that followed at that exact moment was defeating. Wait, what happened?
+      "Mr. Norville," she continued once it was silent, "Will be the new art teacher." Another roar of cheers and while you smiled and celebrated with your friend, happy for him, you were a bit disappointed that you didn't get the job. And a bit confused. Why were you up here then? "-will be our new Creative Studies instructor!" The noise that followed at that exact moment was deafening. Wait, what happened?
     </Typography>
     <Typography gutterBottom>
       You blinked owlishly as you were patted on the back by Mr. Norville and guided to a set of seats off to the side of the stage while the lights dimmed and the video of your escapades played across the screen. Quietly, you lean over to Mr. Norville, whispering as you asked him what you missed. Your admin, who was sitting on the other side of you, answered quietly instead.
@@ -55,7 +55,7 @@ const Assembly = () => (
       "You're the new Creative Studies teacher. I'll expect your curriculum plans on my desk by Monday. You might want to start with something easy. Like an escape room." Her eyes twinkled as you groaned about going through all of that again.
     </Typography>
     <Typography gutterBottom align="right">
-      <Button href="/story">
+      <Button onClick={onReset}>
         Good job! You solved the puzzle! Head home?
       </Button>
     </Typography>

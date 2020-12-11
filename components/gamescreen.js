@@ -21,6 +21,10 @@ const BackButton = styled.div`
   width: 50px;
   height: 50px;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   & .MuiSvgIcon-root {
     width: 100%;
     height: 100%;
@@ -34,6 +38,10 @@ const ForwardButton = styled.div`
   right: 24px;
   width: 50px;
   height: 50px;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   & .MuiSvgIcon-root {
     width: 100%;

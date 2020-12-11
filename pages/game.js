@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Typography } from '@material-ui/core';
+import { useRouter } from 'next/router';
 
 import * as Rooms from '../components/rooms';
 import Dialog from '../components/dialog';
 
+const defaultFound = {
+  admin: { found: [], max: 1 },
+  class: { found: [], max: 10 },
+  lounge: { found: [], max: 3 },
+};
+
 const Game = () => {
   const [curRoom, setCurRoom] = useState('summary');
-  const [found, updateFound] = useState({
-    admin: { found: [], max: 1 },
-    class: { found: [], max: 10 },
-    lounge: { found: [], max: 3 },
-  });
+  const [found, updateFound] = useState(defaultFound);
+  const router = useRouter();
 
   const updateRoom = (name, spot) => {   
     if (found[name].found.includes(spot)) return;
@@ -21,7 +25,13 @@ const Game = () => {
     updateFound(updated);
   }
 
+  const handleReset = () => {
+    updateFound(defaultFound);
+    router.push('/story');
+  };
+
   const completedRooms = Object.keys(found).filter(i => found[i].found.length === found[i].max);
+  if (completedRooms.length < Object.keys(found).length && curRoom === 'assembly') setCurRoom('summary');
 
   let onNext = null;
   if (completedRooms.length === Object.keys(found).length) onNext = () => setCurRoom('closet');
@@ -33,8 +43,8 @@ const Game = () => {
     display = <Rooms.Lounge completed={found.lounge.found} onClick={updateRoom} onBack={() => setCurRoom('summary')} />;
   if (curRoom === 'closet')
     display = <Rooms.Closet onNext={() => setCurRoom('assembly')} />;
-  if (curRoom === 'assembly');
-    display = <Rooms.Assembly />;
+  if (curRoom === 'assembly')
+    display = <Rooms.Assembly onReset={handleReset} />;
 
   const handleAdminDialog = () => {
     updateRoom('admin', 'all');
