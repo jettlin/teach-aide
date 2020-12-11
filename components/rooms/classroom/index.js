@@ -4,6 +4,7 @@ import { Typography } from '@material-ui/core';
 import Summary from './summary';
 import Dialog from '../../dialog';
 import Main from './main';
+import Bins from './bins';
 
 const Classroom = ({ onBack = () => { }, onClick = (_rm, _spot) => { }, completed = [] }) => {
   const [curView, setCurView] = useState('summary');
@@ -21,6 +22,8 @@ const Classroom = ({ onBack = () => { }, onClick = (_rm, _spot) => { }, complete
   let display = <Summary onBack={onBack} onClick={handleDisplay} completed={completed} />;
   if (curView === 'main')
     display = <Main onBack={() => setCurView('summary')} onClick={(spot) => onClick('class', spot)} completed={completed} />;
+  if (curView === 'bins')
+    display = <Bins onBack={() => setCurView('summary')} onClick={(spot) => onClick('class', spot)} completed={completed} />;
 
   return (
     <>

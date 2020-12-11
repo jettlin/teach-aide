@@ -38,7 +38,7 @@ const Main = ({ onBack = () => { }, onClick = (_spot) => { }, completed = [] }) 
   let msg = null;
   if (showDialog)
     msg = ((scripts.main[showDialog] || {}).text || [])
-      .flatMap((i, idx) => [<Typography key={idx} gutterBottom>{i}</Typography>, <br key={`${idx}=br`} />]);
+      .flatMap((i, idx) => [<Typography key={idx} gutterBottom>{i}</Typography>, <br key={`${idx}_br`} />]);
 
   const handleClose = () => {
     onClick(showDialog);

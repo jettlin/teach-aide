@@ -8,7 +8,7 @@ const Game = () => {
   const [curRoom, setCurRoom] = useState('summary');
   const [found, updateFound] = useState({
     admin: { found: [], max: 1 },
-    class: { found: [], max: 9 },
+    class: { found: [], max: 10 },
     lounge: { found: [], max: 3 },
   });
 
